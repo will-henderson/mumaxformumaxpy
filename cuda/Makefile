@@ -49,7 +49,8 @@ ifneq (,$(filter 7.0 7.5 8.0,$(CUDA_VERSION)))
 	NVCC_COMPATIBILITY_FLAGS :=
 endif
 
-NVCCFLAGS = $(NVCC_COMPATIBILITY_FLAGS) -ccbin=$(NVCC_CCBIN) --compiler-options -Werror --compiler-options -Wall -Xptxas -O3 -ptx
+#  NVCCFLAGS = $(NVCC_COMPATIBILITY_FLAGS) -ccbin=$(NVCC_CCBIN) --compiler-options -Werror --compiler-options -Wall -Xptxas -O3 -ptx
+NVCCFLAGS = $(NVCC_COMPATIBILITY_FLAGS) --compiler-options -Werror --compiler-options -Wall -Xptxas -O3 -ptx
 
 CUDAFILES := $(wildcard *.cu)
 WRAPPERS := $(CUDAFILES:.cu=_wrapper.go)
